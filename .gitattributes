@@ -1,5 +1,8 @@
 *.bas linguist-vendored
 *.md linguist-vendored
 *.pdf linguist-vendored
+src/*.bas linguist-vendored
+doc/*.md linguist-vendored
+doc/*.pdf linguist-vendored
 src/* linguist-vendored
 doc/* linguist-vendored
