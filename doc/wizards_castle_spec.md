@@ -2,12 +2,10 @@
 
 ## Background
 
-Wizard's Castle was written by Joseph R. Power in the mid-to-late 1970s
-and published in _Recreational Computing Magazine_ in the July/August
-1980 issue.
+Wizard's Castle was written by Joseph R. Power in the mid-to-late 1970s and
+published in _Recreational Computing Magazine_ in the July/August 1980 issue.
 
-This spec covers the rules of the game, but the original UI is out of
-scope.
+This spec covers the rules of the game, but the original UI is out of scope.
 
 D&D-style die rolls are used in this spec, e.g. `2d6`.
 
@@ -29,8 +27,8 @@ Some kind of magic number for Exidy Sorcerer BASIC?
 
 ### Seeding the PRNG
 
-The value in `T` appears to seed the PRNG on line 80, but the details of
-the machine code call and `PEEK` are unknown. (`T` = time???)
+The value in `T` appears to seed the PRNG on line 80, but the details of the
+machine code call and `PEEK` are unknown. (`T` = time???)
 
 ```basic
 40 POKE 260,218: POKE 261,1: T = USR(0): T = PEEK(-2049)
@@ -44,14 +42,13 @@ See the [Curses](#Curses) section.
 
 ## Gameplay
 
-The player runs through the Dungeon hunting for a monster holding the
-Runestaff.
+The player runs through the Dungeon hunting for a monster holding the Runestaff.
 
-One the Runestaff is obtained, the player uses it to teleport into a
-warp that's actually The Orb of Zot in disguse.
+One the Runestaff is obtained, the player uses it to teleport into a warp that's
+actually The Orb of Zot in disguse.
 
-Once the Orb of Zot is obtained, the player makes their way back to the
-entrance and exits the dungeon to win.
+Once the Orb of Zot is obtained, the player makes their way back to the entrance
+and exits the dungeon to win.
 
 ### Turn Sequence
 
@@ -97,28 +94,28 @@ resolution occurs exactly as if the play had walked to that location.
 
 The dungeon is an 8x8x8 grid.
 
-> Though the original game has positive-Y to the right and positive-X
-> down, this spec uses the reverse, more standard orientation of
-> positive-X to the right and positive-Y down.
+> Though the original game has positive-Y to the right and positive-X down, this
+> spec uses the reverse, more standard orientation of positive-X to the right
+> and positive-Y down.
 >
-> Additionally, the original source uses 1-based indexing. This spec
-> uses 0-based indexing.
+> Additionally, the original source uses 1-based indexing. This spec uses
+> 0-based indexing.
 
-The dungeon wraps around in the X and Y directions. It is clamped in the
-Z direction.
+The dungeon wraps around in the X and Y directions. It is clamped in the Z
+direction.
 
-There is one entrance at location (3,0,0). If the player moves north
-from that room, they exit the dungeon and the game is over.
+There is one entrance at location (3,0,0). If the player moves north from that
+room, they exit the dungeon and the game is over.
 
-Rooms contain one displayable character (items, monsters, etc.) The
-minor exceptions to this rule are:
+Rooms contain one displayable character (items, monsters, etc.) The minor
+exceptions to this rule are:
 
 1. One of the rooms contains a monster who is carrying the Runestaff
 2. One of the rooms contains a warp that is hiding the Orb of Zot
 
-Rooms can be discovered or undiscovered. Undiscovered rooms are marked
-as unknown on the map. Rooms are typically discovered by entering them,
-but there are other ways (flares, lamp, gazing into an orb, and so on).
+Rooms can be discovered or undiscovered. Undiscovered rooms are marked as
+unknown on the map. Rooms are typically discovered by entering them, but there
+are other ways (flares, lamp, gazing into an orb, and so on).
 
 ### Generation
 
@@ -134,19 +131,18 @@ In the steps below, all rooms are undiscovered unless otherwise noted.
 1. Mark all rooms as empty.
 2. Mark the entrance (discovered) at (3,0,0).
 3. For each level 0-6 `RAND_PLACE` 2 stairs down.
-4. For each of the stairs down, place a stairs up on the level below at
-   the same X,Y.
+4. For each of the stairs down, place a stairs up on the level below at the same
+   X,Y.
 5. For each level 0-7 `RAND_PLACE` 1 of each type of monster (not including
    vendors).
 6. For each level 0-8 `RAND_PLACE` 3 of each type of item.
 7. For each level 0-8 `RAND_PLACE` 3 vendors.
-8. For each treasure, choose a random level and `RAND_PLACE` the
-   treasure.
+8. For each treasure, choose a random level and `RAND_PLACE` the treasure.
 9. For all 3 curses, `RAND_PLACE` an empty room and mark it as cursed.
-10. Choose an additional random monster and random level. `RAND_PLACE`
-    that monster and mark it as carrying the Runestaff.
-11. Choose a random level. `RAND_PLACE` an additional warp and mark it
-    as containing the Orb of Zot.
+10. Choose an additional random monster and random level. `RAND_PLACE` that
+    monster and mark it as carrying the Runestaff.
+11. Choose a random level. `RAND_PLACE` an additional warp and mark it as
+    containing the Orb of Zot.
 
 #### Alternate Generation
 
@@ -154,11 +150,10 @@ Historically, random rooms were selected by repeatedly searching at random until
 an empty room was found. While this might produce fast results on a sparse
 dungeon, it might be irksome to those who want a more regular O(n) solution.
 
-Additionally, the Runestaff is hidden in an extra monster and the Orb of
-Zot is hidden as an extra warp. This leaks information to the player
-that could be hidden by using existing monsters and warps to hold those
-items. It would be better to have a consistent number of monsters and
-warps per level.
+Additionally, the Runestaff is hidden in an extra monster and the Orb of Zot is
+hidden as an extra warp. This leaks information to the player that could be
+hidden by using existing monsters and warps to hold those items. It would be
+better to have a consistent number of monsters and warps per level.
 
 Potential algorithm:
 
@@ -167,17 +162,17 @@ Potential algorithm:
 3. Choose a level 0-7 for the Orb of Zot.
 4. Choose a level 0-7 for each treasure.
 5. Choose a level 0-7 for each curse.
-6. Add the following to the level, in any easily-programmed order (does
-   not need to be random):
+6. Add the following to the level, in any easily-programmed order (does not need
+   to be random):
    1. Entrance.
    2. 2 stairs down (levels 0-6 only!)
    3. 2 stairs up (levels 1-7 only!)
    4. 1 of each type of monster (not including vendors).
-      - If this is the Runestaff level, choose one of the monsters at
-        random to possess it.
+      - If this is the Runestaff level, choose one of the monsters at random to
+        possess it.
    5. 3 of each type of item.
-      - If this is the Orb of Zot level, choose one of the warps at
-        random to possess it.
+      - If this is the Orb of Zot level, choose one of the warps at random to
+        possess it.
    6. 3 vendors.
    7. Add all treasures for this level.
    8. Add all curses for this level as empty rooms.
@@ -187,10 +182,9 @@ Potential algorithm:
    - Note the stairs up locations (levels 1-7 only!)
 8. For level 0, swap the item at (3,0,0) with the entrance. (I.e. move the
    entrance into place.)
-9. Swap both stairs up locations (levels 1-7 only!) with whatever is at
-   the X,Y coordinates on this level of the stairs down X,Y location on
-   the previous level. (I.e. make sure the stairs up are directly below
-   the stairs down.)
+9. Swap both stairs up locations (levels 1-7 only!) with whatever is at the X,Y
+   coordinates on this level of the stairs down X,Y location on the previous
+   level. (I.e. make sure the stairs up are directly below the stairs down.)
 10. Repeat from step 6 for each level.
 
 ## Room Contents
@@ -245,9 +239,9 @@ vanishes.
 
 In addition, the warp turns into an empty room.
 
-If you enter the warp by any other means, you pass out the other side in
-the direction last walked (N, S, W, or E), remaining in all cases on the
-same level as the warp.
+If you enter the warp by any other means, you pass out the other side in the
+direction last walked (N, S, W, or E), remaining in all cases on the same level
+as the warp.
 
 ### Monsters
 
@@ -282,8 +276,8 @@ combat with them.
 
 ### The Runestaff
 
-One of the monsters (not counting vendors) holds The Runestaff. When
-this monster is killed, the Runestaff is transferred to the player.
+One of the monsters (not counting vendors) holds The Runestaff. When this
+monster is killed, the Runestaff is transferred to the player.
 
 The Runestaff can be used to teleport to any X, Y, Z location.
 
@@ -314,8 +308,8 @@ room is marked as empty.
 Treasures sold or used for bribes are inaccessible for the remainder of the
 game.
 
-Treasure value is a random number between `1` and `treasure_num * 1500`
-used when selling to the vendors.
+Treasure value is a random number between `1` and `treasure_num * 1500` used
+when selling to the vendors.
 
 > In the original game, the value was computed each time you traded with any
 > vendor. This allowed the player to just keep coming back until they got a high
@@ -420,7 +414,8 @@ If you enter this room, you catch the curse.
 With Forgetfulness, the random room is marked unexplored even if it was already
 unexplored.
 
-Possessing the Warding Treasure causes the effects of the curse to be ignored that turn.
+Possessing the Warding Treasure causes the effects of the curse to be ignored
+that turn.
 
 Curses are never cured.
 
@@ -433,8 +428,8 @@ of the curse will start again.
 > 680 IF PEEK(FND(Z)) = 1 THEN FOR Q = 1 TO 3: C(Q,4) = -(C(Q,1)=X) * (C(Q,2)=Y) * (C(Q,3)=Z): NEXT
 > ```
 >
-> This is saying, if this is an empty room, then Curse `Q` is active if the player
-> X, Y, and Z are the same as Curse `Q`'s X, Y, and Z.
+> This is saying, if this is an empty room, then Curse `Q` is active if the
+> player X, Y, and Z are the same as Curse `Q`'s X, Y, and Z.
 >
 > (`-1` and `0` are TRUE and FALSE in BASIC boolean expressions.)
 >
@@ -446,8 +441,8 @@ of the curse will start again.
 > So you are cured of the curse when you step into another, non-cursed empty
 > room, which doesn't sound nearly as reasonable.
 >
-> The rest of the code seems to assume that the curse is never cured and that the
-> treasures simply cause the effects to be ignored.
+> The rest of the code seems to assume that the curse is never cured and that
+> the treasures simply cause the effects to be ignored.
 
 ## Regular Actions
 
@@ -602,8 +597,8 @@ If you drink from a pool, one of 8 things happen with equal probability.
 
 ### Teleport
 
-If you have the Runestaff, you can teleport to any X, Y, Z location. See [The
-Runestaff](#the-runestaff).
+If you have the Runestaff, you can teleport to any X, Y, Z location. See
+[The Runestaff](#the-runestaff).
 
 ### Quit
 
@@ -647,15 +642,15 @@ Vendors will offer to buy any treasures you carry for their [value](#treasures).
 
 #### Buy Armor
 
-The player can buy any type of armor, even if is a downgrade, for the [vendor
-price](#armor). Only one armor may be possessed at a time.
+The player can buy any type of armor, even if is a downgrade, for the
+[vendor price](#armor). Only one armor may be possessed at a time.
 
 The armor is brand new at full durability.
 
 #### Buy Weapons
 
-The player can buy any type of weapon, even if is a downgrade, for the [vendor
-price](#weapons). Only one weapon may be possessed at a time.
+The player can buy any type of weapon, even if is a downgrade, for the
+[vendor price](#weapons). Only one weapon may be possessed at a time.
 
 #### Buy Potions
 
@@ -725,8 +720,9 @@ HP.
 
 #### Retreat
 
-If the player chooses to retreat, the monster [gets one last
-attack](#monster-attacks), and then the player escapes. (Assuming they survive.)
+If the player chooses to retreat, the monster
+[gets one last attack](#monster-attacks), and then the player escapes. (Assuming
+they survive.)
 
 The player chooses to retreat N, S, W, or E and walks to that room.
 
@@ -780,8 +776,8 @@ Otherwise the monster rolls to-hit.
 - If the player is not [blind](#blindness), monster hits on DX < `3d7`.
 - If the player is [blind](#blindness), monster hits on DX < `3d7` + 3.
 
-If a hit, the monster causes [damage](#taking-damage) based on [monster
-race](#monsters).
+If a hit, the monster causes [damage](#taking-damage) based on
+[monster race](#monsters).
 
 ### Player loses combat
 
