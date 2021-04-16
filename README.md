@@ -10,14 +10,14 @@
 
 ## Disclaimer
 
-I did not write this game. But I've probably played it more times than
-any other game, so I'm definitely an enthusiast.
+I did not write this game. But I've probably played it more times than any other
+game, so I'm definitely an enthusiast.
 
-All the information presented here is in the interest of preserving this
-piece of computing history.
+All the information presented here is in the interest of preserving this piece
+of computing history.
 
-My main contribution here is the production of a spec that describes in
-detail the rules for the game.
+My main contribution here is the production of a spec that describes in detail
+the rules for the game.
 
 --Brian "Beej Jorgensen" Hall, <beej@beej.us>
 
