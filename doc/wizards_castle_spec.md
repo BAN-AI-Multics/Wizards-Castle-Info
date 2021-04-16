@@ -13,7 +13,7 @@ D&D-style die rolls are used in this spec, e.g. `2d6`.
 
 ### References
 
-* [Original article from Archive.org](https://archive.org/details/1980-07-recreational-computing/page/n9)
+- [Original article from Archive.org](https://archive.org/details/1980-07-recreational-computing/page/n9)
 
 ## Unknowns
 
@@ -61,32 +61,33 @@ of steps repeats until the game is over.
 
 The turn counter is initialized to 0.
 
-* Increment turn counter.
+- Increment turn counter.
 
-* Initial [curse](#curses) effect resolution.
-  * If the player has the Orb of Zot or the Runestaff, curse effects do not take
+- Initial [curse](#curses) effect resolution.
+
+  - If the player has the Orb of Zot or the Runestaff, curse effects do not take
     place.
-  * If the player has Lethargy (and no Ruby Red), increment the turn counter.
-  * If the player has The Leech (and no Pale Pearl), subtract `1d5` from GP.
-  * If the player has Forgetfulness (and no Green Gem), unexplore a random room.
+  - If the player has Lethargy (and no Ruby Red), increment the turn counter.
+  - If the player has The Leech (and no Pale Pearl), subtract `1d5` from GP.
+  - If the player has Forgetfulness (and no Green Gem), unexplore a random room.
 
-* Test to see if the player is in a [cursed room](#curses), and enable that
+- Test to see if the player is in a [cursed room](#curses), and enable that
   curse if so.
 
-* Print a [random message](#random-messages).
+- Print a [random message](#random-messages).
 
-* If the player is [blind](#blindness) and has the Opal Eye, cure blindness.
+- If the player is [blind](#blindness) and has the Opal Eye, cure blindness.
 
-* If the player has a [book stuck to their hands](#book-stuck-to-hands) and has
+- If the player has a [book stuck to their hands](#book-stuck-to-hands) and has
   The Blue Flame, dissolve the book.
 
-* Input a move and perform that [action](#regular-actions).
+- Input a move and perform that [action](#regular-actions).
 
-* Print location (if not [blind](#blind)) and stats.
+- Print location (if not [blind](#blind)) and stats.
 
-* Print out room description.
+- Print out room description.
 
-* Resolve that [room's effects](#room-contents).
+- Resolve that [room's effects](#room-contents).
 
 Certain things like sinkholes, gas chests, and warps (and similarly,
 teleporting) cause the player to move uncommanded. In those cases, roomt effect
@@ -122,6 +123,7 @@ but there are other ways (flares, lamp, gazing into an orb, and so on).
 ### Generation
 
 Algorithm `RAND_PLACE`:
+
 1. Find an empty room at random on a particular level
 2. Place the given item in that room
 
@@ -171,18 +173,18 @@ Potential algorithm:
    2. 2 stairs down (levels 0-6 only!)
    3. 2 stairs up (levels 1-7 only!)
    4. 1 of each type of monster (not including vendors).
-      * If this is the Runestaff level, choose one of the monsters at
+      - If this is the Runestaff level, choose one of the monsters at
         random to possess it.
    5. 3 of each type of item.
-      * If this is the Orb of Zot level, choose one of the warps at
+      - If this is the Orb of Zot level, choose one of the warps at
         random to possess it.
    6. 3 vendors.
    7. Add all treasures for this level.
    8. Add all curses for this level as empty rooms.
 7. Shuffle the level.
-   * Note the entrance location.
-   * Note the stairs down locations (levels 0-6 only!)
-   * Note the stairs up locations (levels 1-7 only!)
+   - Note the entrance location.
+   - Note the stairs down locations (levels 0-6 only!)
+   - Note the stairs up locations (levels 1-7 only!)
 8. For level 0, swap the item at (3,0,0) with the entrance. (I.e. move the
    entrance into place.)
 9. Swap both stairs up locations (levels 1-7 only!) with whatever is at
@@ -198,7 +200,7 @@ Potential algorithm:
 Historic graphic character corresponding to the item shown.
 
 | Room              | Character | Notes                                          |
-|-------------------|:---------:|------------------------------------------------|
+| ----------------- | :-------: | ---------------------------------------------- |
 | Empty room        |    `.`    |                                                |
 | Entrance          |    `E`    | See [Entrance](#entrance)                      |
 | Stairs going up   |    `U`    |                                                |
@@ -251,24 +253,24 @@ same level as the warp.
 
 HP is Hit Points.
 
-|  # | Monster  | Character | HP | Damage | Notes                                  |
-|:--:|----------|:---------:|:--:|:------:|----------------------------------------|
-|  1 | Kobold   |    `M`    |  3 |    1   |                                        |
-|  2 | Orc      |    `M`    |  4 |    2   |                                        |
-|  3 | Wolf     |    `M`    |  5 |    2   |                                        |
-|  4 | Goblin   |    `M`    |  6 |    3   |                                        |
-|  5 | Ogre     |    `M`    |  7 |    3   |                                        |
-|  6 | Troll    |    `M`    |  8 |    4   |                                        |
-|  7 | Bear     |    `M`    |  9 |    4   |                                        |
-|  8 | Minotaur |    `M`    | 10 |    5   |                                        |
-|  9 | Gargoyle |    `M`    | 11 |    5   | 1/8 chance of weapon breaking on a hit |
-| 10 | Chimera  |    `M`    | 12 |    6   |                                        |
-| 11 | Balrog   |    `M`    | 13 |    6   |                                        |
-| 12 | Dragon   |    `M`    | 14 |    7   | 1/8 chance of weapon breaking on a hit |
+|  #  | Monster  | Character | HP  | Damage | Notes                                  |
+| :-: | -------- | :-------: | :-: | :----: | -------------------------------------- |
+|  1  | Kobold   |    `M`    |  3  |   1    |                                        |
+|  2  | Orc      |    `M`    |  4  |   2    |                                        |
+|  3  | Wolf     |    `M`    |  5  |   2    |                                        |
+|  4  | Goblin   |    `M`    |  6  |   3    |                                        |
+|  5  | Ogre     |    `M`    |  7  |   3    |                                        |
+|  6  | Troll    |    `M`    |  8  |   4    |                                        |
+|  7  | Bear     |    `M`    |  9  |   4    |                                        |
+|  8  | Minotaur |    `M`    | 10  |   5    |                                        |
+|  9  | Gargoyle |    `M`    | 11  |   5    | 1/8 chance of weapon breaking on a hit |
+| 10  | Chimera  |    `M`    | 12  |   6    |                                        |
+| 11  | Balrog   |    `M`    | 13  |   6    |                                        |
+| 12  | Dragon   |    `M`    | 14  |   7    | 1/8 chance of weapon breaking on a hit |
 
-|  # | Combatant | Character | HP | Damage | Notes                                             |
-|:--:|-----------|:---------:|:--:|:------:|---------------------------------------------------|
-| 13 | Vendor    |    `V`    | 15 |    7   | See [Vendors Interactions](#vendor-interactions). |
+|  #  | Combatant | Character | HP  | Damage | Notes                                             |
+| :-: | --------- | :-------: | :-: | :----: | ------------------------------------------------- |
+| 13  | Vendor    |    `V`    | 15  |   7    | See [Vendors Interactions](#vendor-interactions). |
 
 HP is computed as `monster_num + 2`.
 
@@ -293,16 +295,16 @@ is transferred to the player.
 
 ### Treasures
 
-|  # | Treasure       | Character |   Value   | Effect                                      |
-|:--:|----------------|:---------:|:---------:|---------------------------------------------|
-|  1 | The Ruby Red   |    `T`    | `1d1500`  | Protects against the curse of Lethargy      |
-|  2 | The Norn Stone |    `T`    | `1d3000`  | No special power                            |
-|  3 | The Pale Pearl |    `T`    | `1d4500`  | Protects against the curse of The Leech     |
-|  4 | The Opal Eye   |    `T`    | `1d6000`  | Cures blindness                             |
-|  5 | The Green Gem  |    `T`    | `1d7500`  | Protects against the curse of Forgetfulness |
-|  6 | The Blue Flame |    `T`    | `1d9000`  | Dissolves books stuck to your hands         |
-|  7 | The Palintir   |    `T`    | `1d10500` | No special power                            |
-|  8 | The Silmaril   |    `T`    | `1d12000` | No special power                            |
+|  #  | Treasure       | Character |   Value   | Effect                                      |
+| :-: | -------------- | :-------: | :-------: | ------------------------------------------- |
+|  1  | The Ruby Red   |    `T`    | `1d1500`  | Protects against the curse of Lethargy      |
+|  2  | The Norn Stone |    `T`    | `1d3000`  | No special power                            |
+|  3  | The Pale Pearl |    `T`    | `1d4500`  | Protects against the curse of The Leech     |
+|  4  | The Opal Eye   |    `T`    | `1d6000`  | Cures blindness                             |
+|  5  | The Green Gem  |    `T`    | `1d7500`  | Protects against the curse of Forgetfulness |
+|  6  | The Blue Flame |    `T`    | `1d9000`  | Dissolves books stuck to your hands         |
+|  7  | The Palintir   |    `T`    | `1d10500` | No special power                            |
+|  8  | The Silmaril   |    `T`    | `1d12000` | No special power                            |
 
 Treasures are found randomly thoughout the dungeon.
 
@@ -323,24 +325,23 @@ used when selling to the vendors.
 
 ## Weapons
 
-| # | Weapon | Damage | Initial Price | Vendor Price |
-|:-:|--------|:------:|:-------------:|:------------:|
-| 1 | Dagger |    1   |       10      |     1250     |
-| 2 | Mace   |    2   |       20      |     1500     |
-| 3 | Sword  |    3   |       30      |     2000     |
+|  #  | Weapon | Damage | Initial Price | Vendor Price |
+| :-: | ------ | :----: | :-----------: | :----------: |
+|  1  | Dagger |   1    |      10       |     1250     |
+|  2  | Mace   |   2    |      20       |     1500     |
+|  3  | Sword  |   3    |      30       |     2000     |
 
 Damage is computed as `weapon_num`.
 
 Initial Cost is computed as `weapon_num * 10`.
 
-
 ## Armor
 
-| # | Armor     | Protection | Durability | Initial Price | Vendor Price |
-|:-:|-----------|:----------:|:----------:|:-------------:|:------------:|
-| 1 | Leather   |      1     |      7     |       10      |     1250     |
-| 2 | Chainmail |      2     |     14     |       20      |     1500     |
-| 3 | Plate     |      3     |     21     |       30      |     2000     |
+|  #  | Armor     | Protection | Durability | Initial Price | Vendor Price |
+| :-: | --------- | :--------: | :--------: | :-----------: | :----------: |
+|  1  | Leather   |     1      |     7      |      10       |     1250     |
+|  2  | Chainmail |     2      |     14     |      20       |     1500     |
+|  3  | Plate     |     3      |     21     |      30       |     2000     |
 
 Protection is computed as `armor_num`.
 
@@ -366,7 +367,7 @@ below. The suffix `WICH` was appended directly to the monster name (e.g.
 `BEARWICH`), while the others were separated by a space (e.g. `GARGOYLE ROAST`).
 
 | Recipe | Note                                     |
-|--------|------------------------------------------|
+| ------ | ---------------------------------------- |
 | wich   | No space between monster name and `wich` |
 | Stew   |                                          |
 | Soup   |                                          |
@@ -376,17 +377,16 @@ below. The suffix `WICH` was appended directly to the monster name (e.g.
 | Taco   |                                          |
 | Pie    |                                          |
 
-
 ## Character Generation
 
 ### Starting Stat Values
 
-| # | Race   | ST | DX | IQ | GP | Additional points to allocate |
-|:-:|--------|:--:|:--:|:--:|:--:|-------------------------------|
-| 1 | Hobbit |  4 | 12 |  8 | 60 | 4                             |
-| 2 | Elf    |  6 | 10 |  8 | 60 | 8                             |
-| 3 | Human  |  8 |  8 |  8 | 60 | 8                             |
-| 4 | Dwarf  | 10 |  6 |  8 | 60 | 8                             |
+|  #  | Race   | ST  | DX  | IQ  | GP  | Additional points to allocate |
+| :-: | ------ | :-: | :-: | :-: | :-: | ----------------------------- |
+|  1  | Hobbit |  4  | 12  |  8  | 60  | 4                             |
+|  2  | Elf    |  6  | 10  |  8  | 60  | 8                             |
+|  3  | Human  |  8  |  8  |  8  | 60  | 8                             |
+|  4  | Dwarf  | 10  |  6  |  8  | 60  | 8                             |
 
 ST is computed as `ST = 2 + race_num * 2`.
 
@@ -412,7 +412,7 @@ There are three curses, each one located in a random empty room in the dungeon.
 If you enter this room, you catch the curse.
 
 | Curse         | Warding Treasure | Effect                                                       |
-|---------------|------------------|--------------------------------------------------------------|
+| ------------- | ---------------- | ------------------------------------------------------------ |
 | Lethargy      | The Ruby Red     | Monsters attack first, turn counter increases by 2 each turn |
 | The Leech     | The Pale Pearl   | Lose `1d5` gold pieces per turn                              |
 | Forgetfulness | The Green Gem    | Each turn, mark a random room as unexplored                  |
@@ -447,7 +447,7 @@ of the curse will start again.
 > room, which doesn't sound nearly as reasonable.
 >
 > The rest of the code seems to assume that the curse is never cured and that the
-> treasures simply cause the effects to be ignored. 
+> treasures simply cause the effects to be ignored.
 
 ## Regular Actions
 
@@ -514,7 +514,7 @@ You cannot shine the lamp if you are [blind](#blindness).
 Book effects happen at an even 1/6 chance.
 
 | Effect                  | Result/Notes                                    |
-|-------------------------|-------------------------------------------------|
+| ----------------------- | ----------------------------------------------- |
 | Player goes blind       | See [Blindness](#blindness)                     |
 | Book of Zot's Poetry    | No effect                                       |
 | Old copy of playmonster | Monster name chosen at random. No effect.       |
@@ -541,10 +541,10 @@ Once a chest is opened, it is replaced by an empty room, except in the case of a
 gas chest.
 
 | Probability | Effect            |
-|:-----------:|-------------------|
-|    1/4      | Chest explodes    |
-|    1/4      | Poison gas        |
-|    1/2      | Contains treasure |
+| :---------: | ----------------- |
+|     1/4     | Chest explodes    |
+|     1/4     | Poison gas        |
+|     1/2     | Contains treasure |
 
 #### Exploding chest
 
@@ -575,7 +575,7 @@ These orbs found in rooms are _not_ The Orb of Zot.
 Orb effects happen at an even 1/6 chance.
 
 | Effect                           | Result/Notes                                          |
-|----------------------------------|-------------------------------------------------------|
+| -------------------------------- | ----------------------------------------------------- |
 | See yourself in a bloody heap    | Lose `1d2` ST, room is marked as empty (orb removed)  |
 | See yourself becoming a monster  | Type of monster chosen at random                      |
 | See a monster gazing back at you | Type of monster chosen at random                      |
@@ -590,7 +590,7 @@ You cannot gaze into an orb if you are [blind](#blindness).
 If you drink from a pool, one of 8 things happen with equal probability.
 
 | Pool Effect   | Description                                |
-|---------------|--------------------------------------------|
+| ------------- | ------------------------------------------ |
 | Feel Stronger | Add `1d3` to ST, capped at 18              |
 | Feel Weaker   | Subtract `1d3` from ST                     |
 | Feel Smarter  | Add `1d3` to IQ, capped at 18              |
@@ -613,16 +613,16 @@ The game is over.
 
 Being blind has a number of mostly ill effects:
 
-* In the [random messages](#random-messages), `YOU SEE A BAT` is replaced by
+- In the [random messages](#random-messages), `YOU SEE A BAT` is replaced by
   `YOU STEPPED ON A FROG`.
-* Monsters get the first attack.
-* Your to-hit worsens to `DX < 1d20 + 3`. See [Combat](#combat).
-* Your to-dodge worsens to `DX < 3d7 + 3`. See [Combat](#combat).
-* You cannot [gaze into an orb](#gaze-into-an-orb).
-* You cannot [light a flare](#light-a-flare).
-* You cannot [shine the lamp](#shine-the-lamp).
-* You can't see the [the map](#show-the-map).
-* You can't see your X, Y, Z location.
+- Monsters get the first attack.
+- Your to-hit worsens to `DX < 1d20 + 3`. See [Combat](#combat).
+- Your to-dodge worsens to `DX < 3d7 + 3`. See [Combat](#combat).
+- You cannot [gaze into an orb](#gaze-into-an-orb).
+- You cannot [light a flare](#light-a-flare).
+- You cannot [shine the lamp](#shine-the-lamp).
+- You can't see the [the map](#show-the-map).
+- You can't see your X, Y, Z location.
 
 If you have the Opal Eye at the beginning of a turn, your blindness is cured.
 
@@ -632,9 +632,9 @@ If the vendors are angry at the player, [combat](#combat) begins as normal.
 
 Otherwise, the player can:
 
-* Trade
-* Attack
-* Ignore
+- Trade
+- Attack
+- Ignore
 
 Either zero vendors are angry or all vendors are angry. Anger is not tracked
 per-vendor.
@@ -683,9 +683,9 @@ The turn is over with no effect.
 Upon encountering a monster or angry vendor, the player gets the first attack
 unless one or more of the following is true:
 
-* You are afflicted by the curse of [Lethargy](#curses)
-* You're [blind](#blindness)
-* DX < `2d9`
+- You are afflicted by the curse of [Lethargy](#curses)
+- You're [blind](#blindness)
+- DX < `2d9`
 
 When a monster (or vendor) is defeated, it is removed from the map.
 
@@ -693,10 +693,10 @@ When a monster (or vendor) is defeated, it is removed from the map.
 
 The player gets one action during their attack:
 
-* Attack
-* Retreat
-* Bribe
-* Cast a Spell
+- Attack
+- Retreat
+- Bribe
+- Cast a Spell
 
 #### Attack
 
@@ -714,11 +714,11 @@ Otherwise, player rolls to-hit.
 
 If not blind:
 
-* Player hits if DX >= `1d20`
+- Player hits if DX >= `1d20`
 
 If blind:
 
-* Player hits if DX >= `1d20` + 3
+- Player hits if DX >= `1d20` + 3
 
 If the player hits, the monster loses the damage value of the weapon from its
 HP.
@@ -741,10 +741,10 @@ monster plays.
 If the player has treasures, the monster will select one at random that it
 wants.
 
-* If the player agrees, combat ceases and the player is prompted for their next
+- If the player agrees, combat ceases and the player is prompted for their next
   move.
 
-* If the player disagrees, combat continues with the monster's attack.
+- If the player disagrees, combat continues with the monster's attack.
 
 If the player successfully bribes a vendor, all vendors become friendly again.
 
@@ -753,11 +753,11 @@ If the player successfully bribes a vendor, all vendors become friendly again.
 If this is the first iteration of combat and the player moved first, and the
 player has IQ > 14, the player may also cast a spell.
 
-| Spell      |          Cost          |    Duration   | Effect
-|------------|:----------------------:|:-------------:|--------------------------------------------------------|
+| Spell      |          Cost          |   Duration    | Effect                                                 |
+| ---------- | :--------------------: | :-----------: | ------------------------------------------------------ |
 | Web        |       1 point ST       | `1d6`+1 turns | Monster cannot attack until the web breaks             |
 | Fireball   | 1 point ST, 1 point IQ |      ---      | Monster loses `2d7` HP                                 |
-| Deathspell |           ---          |      ---      | If IQ < 15 + `1d4` then player dies, else monster dies |
+| Deathspell |          ---           |      ---      | If IQ < 15 + `1d4` then player dies, else monster dies |
 
 If ST or IQ fall below 1, the player dies immediately and before the spell's
 effects resolve.
@@ -777,8 +777,8 @@ the player.
 
 Otherwise the monster rolls to-hit.
 
-* If the player is not [blind](#blindness), monster hits on DX < `3d7`.
-* If the player is [blind](#blindness), monster hits on DX < `3d7` + 3.
+- If the player is not [blind](#blindness), monster hits on DX < `3d7`.
+- If the player is [blind](#blindness), monster hits on DX < `3d7` + 3.
 
 If a hit, the monster causes [damage](#taking-damage) based on [monster
 race](#monsters).
@@ -800,12 +800,12 @@ it.
 
 If the player defeats a vendor, they receive:
 
-* Plate armor
-* Sword
-* A Strength Potion giving `1d6` ST
-* A Intelligence Potion giving `1d6` IQ
-* A Dexterity Potion giving `1d6` DX
-* Lamp
+- Plate armor
+- Sword
+- A Strength Potion giving `1d6` ST
+- A Intelligence Potion giving `1d6` IQ
+- A Dexterity Potion giving `1d6` DX
+- Lamp
 
 > Cosmetic detail: the original game would only list the lamp if the player
 > didn't have it already.
@@ -817,7 +817,7 @@ Each turn there is a 1/5 chance that a random message will be shown.
 One of the following messages is shown with equal probability:
 
 | Message                            | Note                                                     |
-|------------------------------------|----------------------------------------------------------|
+| ---------------------------------- | -------------------------------------------------------- |
 | You see a bat fly by               |                                                          |
 | You hear {sound}                   | either "a scream", "footsteps", "a wumpus", or "thunder" |
 | You sneezed                        |                                                          |
@@ -838,20 +838,20 @@ Taking damage reduces your ST and damages your armor.
 
 Values:
 
-* `X`: damage amount
-* `P`: armor [protection value](#armor)
-* `D`: remaining armor [durability value](#armor)
+- `X`: damage amount
+- `P`: armor [protection value](#armor)
+- `D`: remaining armor [durability value](#armor)
 
 Damage resolution:
 
-* ST decreases by `X`-`P` or 0, whichever is more.
-* `D` decreases by `X` or `P`, whichever is less.
+- ST decreases by `X`-`P` or 0, whichever is more.
+- `D` decreases by `X` or `P`, whichever is less.
 
 ## Game Over, Man
 
 If you exit the dungeon:
 
-* If you have the Orb of Zot, you win.
-* If you do not have the Orb of Zot, you lose.
+- If you have the Orb of Zot, you win.
+- If you do not have the Orb of Zot, you lose.
 
 If any of your stats fall to 0 or below, you die and lose.

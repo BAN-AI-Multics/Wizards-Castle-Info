@@ -30,10 +30,10 @@ First, Joe:
 > very similar game with a fantasy motif (called HOBBIT). These were
 > printing terminals, not CRTs (the ADM-3a was still about a year and a
 > half away at that point.)
-> 
+>
 > I found the game intriguing and, when someone managed to break the
 > game I managed to get a listing of it while trying to restart it.
-> 
+>
 > Up to that point I'd only learned FORTRAN IV in a batch processing
 > environment and the program was written in a dialect of HP BASIC (1
 > letter variable names, 1-dimensional arrays only, if statements could
@@ -41,7 +41,7 @@ First, Joe:
 > realize that whoever had written it must have simply sat down at a
 > terminal and started banging away - it was a horrible pile of
 > spaghetti code.
-> 
+>
 > That summer I happened to be near a Radio Shack that sold the TRS-80s
 > which had just come out. The owner had a model 1 (4K of RAM, integer
 > basic, 300baud cassette tape storage) available for demonstration /
@@ -52,13 +52,13 @@ First, Joe:
 > it a lot and enjoyed it and the store owner often used it to show off
 > what could be done with even the entry-level machine. I, however,
 > wasn't satisfied with it.
-> 
+>
 > The problem, for me, was that there simply weren't enough ways to
 > interact with the program and it became repetitive - wander around,
 > kill monsters, get treasures, lather, rinse, repeat. By then I was
 > playing Dungeons & Dragons (the original 3 book set and the Greyhawk
 > supplement) so I was used to a much richer game experience.
-> 
+>
 > I decided to re-write the game from scratch. I thought about what
 > extra features I would put in the game and ended up with everything
 > you see in Wizard's Castle plus one big section that I pulled from the
@@ -67,7 +67,7 @@ First, Joe:
 > them up. There were monsters that stole things from you to give you a
 > reason to do this. The amount of code needed to implement this was so
 > large I decided it wasn't cost effective and eliminated it.)
-> 
+>
 > Michigan State was still almost entirely a batch-only environment
 > (heck, there were punch card vending machines in the computer center!)
 > and any microcomputer of the time large enough to run what I had in
@@ -75,7 +75,7 @@ First, Joe:
 > consequence, I decided to write the program in a pascal/basic/english
 > hybrid pseudo-code figuring I'd convert it to whatever specific
 > language I would eventually have access to.
-> 
+>
 > Long about then a few fellows got together and opened up a computer
 > store in East Lansing. At the time there were still not that many
 > microcomputers for sale and, like so many of the early computer
@@ -84,11 +84,11 @@ First, Joe:
 > didn't have enough capitalization to satisfy Apple's requirements to
 > be an authorized dealer, but they did have Northstar systems for small
 > businesses and the Exidy Sorcerer for home use.
-> 
+>
 > I was friends with a couple of the owners and they didn't mind if I
 > played with their 16K demo machine when it wasn't in use. (By the way,
 > the "Kingdom of N'dic" was a nod to them for their kindness.)
-> 
+>
 > I converted my pseudo-code into Sorcerer Basic (which was the cheaper
 > version of Microsoft's flagship product at that time) and started
 > typing it in. Naturally I discovered that the program wouldn't fit in
@@ -97,7 +97,7 @@ First, Joe:
 > overall and - most significantly - I used the Sorcerer's
 > user-definable character memory instead of a Basic array to hold the
 > castle array.
-> 
+>
 > (The Exidy Sorcerer's characters were 8x8 bits and the top 128
 > character shape definitions were stored in a specific RAM location.
 > This made the Sorcerer nearly ideal for displaying foreign character
@@ -107,19 +107,19 @@ First, Joe:
 > etc. Of course, if you didn't happen to use any user-definable
 > characters then the memory was available for other purposes. This fact
 > will become important in a bit.)
-> 
+>
 > Eventually the guys took pity on me and increased the memory in the
 > demo model to 24K. Between that and my code squeezing Wizard's Castle
 > finally fit. I corrected a few obvious flaws and then sat back and
 > watched others play it, making notes and fixing bugs as needed. I
 > continued to compress the code because I really wanted it to fit in
 > 16K (which was the standard amount of memory the Sorcerer came with.)
-> 
+>
 > I'm still somewhat amazed the store owners didn't banish the program
 > (and me) as they seemed to get a steady stream of people wanting to
 > play it (though I know of at least two systems sold because kids who'd
 > been playing it dragged their parents in!)
-> 
+>
 > Right about the time I finished polishing the code there was an
 > announcement in Kilobaud magazine that they were starting up a
 > software division and were actively seeking programs for the Exidy
@@ -127,7 +127,7 @@ First, Joe:
 > decided to submit Wizard's Castle but I needed to write documentation
 > for it. I did this and sent both program and user manual in and waited
 > to hear back from them.
-> 
+>
 > Before too long I got a call indicating they really wanted to sell my
 > program. We went over a few things and one of the questions they asked
 > was "could I put any user-defined graphics in it?" as they had heard
@@ -136,7 +136,7 @@ First, Joe:
 > memory for another purpose. "No problem" they said. "We really want to
 > get it out by Christmas." A contract soon arrived and I thought all
 > was well.
-> 
+>
 > Days turned into weeks turned into a couple months and I'd heard
 > nothing from them. Finally I was able to get through to the person
 > who'd taken over for the person who'd replaced the person with whom
@@ -144,7 +144,7 @@ First, Joe:
 > anything with the program until they found out if I could put any
 > user-defined graphics in. Grrrr... I explained that I'd answered that
 > question and did so again.
-> 
+>
 > By then, of course, it was too late to make the Christmas season and a
 > few months afterwards it became clear that they were getting out of
 > the Sorcerer market altogether. We mutually revoked the contract.
@@ -155,7 +155,7 @@ First, Joe:
 > I'd written. They printed it in their July/August 1980 issue. (There
 > were a couple other articles with comparably sized programs listed as
 > well.)
-> 
+>
 > As I mentioned in the article, by then the program had been ported to
 > several other systems. A small local software company sold a few of
 > the TRS-80 ports and I later ported it to the Apple II for a friend of
@@ -164,13 +164,13 @@ First, Joe:
 > Earth Software Catalog. Since then I've seen a version for the TI-83
 > and, of course, there was the nice version with the graphic tiles you
 > mentioned.
-> 
+>
 > Time has certainly passed it by, but Wizard's Castle seems to have
 > been enjoyed by quite a few people. I learned a lot and had a lot of
 > fun writing it. It appears to have influenced some subsequent games
 > just as it was influenced by what came before it. Really, how much
 > more can you ask of a game?
-> 
+>
 > You asked about the gaming context in which I wrote Wizard's Castle.
 > The town I grew up in was too small to support a wargaming culture so
 > almost all of my gaming interest went into chess. When I got to
@@ -180,7 +180,7 @@ First, Joe:
 > our own" rules.) I got hooked on some of the microgames (Ogre and
 > WarpWar.) In fact, I liked WarpWar so much I attempted to adapt its
 > combat system for Wizard's Castle - boy did that not work out!
-> 
+>
 > Almost all the computer games available at the time I was writing
 > Wizard's Castle were either small Basic programs, arcade-style games
 > or stripped down Adventure clones. I tried Wizardry a few years after
@@ -190,9 +190,9 @@ First, Joe:
 > Sorcerer and wrote a few arcade games in Basic (including a wholly
 > original one that, even though only a handfull of people ever saw it,
 > I was as proud of as I was of Wizard's Castle.)
-> 
+>
 > I think I'll stop here for now and let you figure out what I missed
-> and what follow-up questions you'd like to ask. 
+> and what follow-up questions you'd like to ask.
 
 Now, Derelict!
 
@@ -208,7 +208,7 @@ Now, Derelict!
 > the map; the fact that M had to be used every few steps, and every
 > time you entered another room you had to spend six keystrokes just
 > looking into adjacent rooms. So my goal was to re-write it as a
-> full-screen interactive program which *always* had the map displayed,
+> full-screen interactive program which _always_ had the map displayed,
 > and I wanted to make the interface keystroke-active (i.e., I didn't
 > want to repeatedly have to hit Enter).
 >
@@ -225,32 +225,32 @@ Now, Derelict!
 > but it was sooooo much work that I kept putting it off until recently,
 > when I finally got motivated enough to put in the several weeks of
 > work that led to the current released form.
-> 
+>
 > In terms of releasing it for free, vs shareware or some such, there
 > were several issues that led to that decision:
-> 
-> 1. it's *alot* of work to manage a shareware program; if you don't put
+>
+> 1. it's _alot_ of work to manage a shareware program; if you don't put
 >    in mechanisms to coerce people to donate, they won't, except for an
->    occasional token offering. And I *really* didn't feel like putting
+>    occasional token offering. And I _really_ didn't feel like putting
 >    alot of work into an effort that likely wouldn't have returned a
 >    significant amount of money in any case.
-> 
+>
 > 2. The original software that I derived it from was freeware; I would
 >    have felt like a real curmudgeon if I'd charged for the derivative
 >    work!!
-> 
+>
 > 3. Wizard's Castle is, in a sense, one of the precursors of the vast
 >    genre of Rogue-like games; these have traditionally been freeware
 >    games, and in fact some of the greatest games that I've ever played
 >    were the roguelikes, including Hack (later Nethack), Omega and
 >    Angband. It would have been a violation of that tradition for me to
 >    do otherwise...
-> 
+>
 > In terms of other games, I didn't really play anything other that WC,
 > Rogue, and later the other roguelikes, until the better graphics-based
 > games came out much later. I never was very inspired by the
 > text-adventures; I played most of Colossal Cave, and a little of Zork
-> I, but got *very* tired of mapping, and ultimately passed on that
+> I, but got _very_ tired of mapping, and ultimately passed on that
 > genre. In terms of later graphics games, I most loved Ultima
 > Underworld I/II, the Eye of the Beholder series, Ultima 4, Might &
 > Magic 3-6 (didn't like 7 and later nearly as much). I played most of
@@ -266,10 +266,10 @@ Now, Derelict!
 > a copy of his email in this message in case you're interested; it has
 > a little history of the original game, which you won't find anywhere
 > else.
-> 
+>
 > Good luck on your book!! (BTW, if you do include any of my emails or
-> other data in your book, *please* do NOT include my email address!! I
-> get more than enough spam already...) 
+> other data in your book, _please_ do NOT include my email address!! I
+> get more than enough spam already...)
 
 All in all, great stuff, and hopefully interesting reading for anyone
 interested in CRPGs, game development, and retro stuff.
